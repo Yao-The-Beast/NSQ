@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/tylertreat/mq-benchmarking/benchmark"
-	"github.com/tylertreat/mq-benchmarking/benchmark/mq"
+	"github.com/tylertreat/nsq/benchmark"
+	"github.com/tylertreat/nsq/benchmark/mq"
 )
 
 func newTester(subject string, testLatency bool, msgCount, msgSize int, channel string) *benchmark.Tester {
