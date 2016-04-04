@@ -16,9 +16,10 @@ type Nsq struct {
 }
 
 func NewNsq(numberOfMessages int, testLatency bool, channeL string) *Nsq {
-	topic := "0#ephemeral"
+	//topic := "0#ephemeral"
 	channel := channeL
-	channel += "#ephemeral"
+	topic := "0"
+	//channel += "#ephemeral"
 	//topic := channel	
 	pub, _ := nsq.NewProducer("localhost:4150", nsq.NewConfig())
 	config :=nsq.NewConfig()
