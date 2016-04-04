@@ -144,7 +144,7 @@ func (endpoint ReceiveEndpoint) WaitForCompletion() {
 		if (*endpoint.Handler).HasCompleted() {
 			break
 		} else {
-			time.Sleep(1 * time.Millisecond)
+			time.Sleep(100 * time.Microsecond)
 		}
 	}
 }
