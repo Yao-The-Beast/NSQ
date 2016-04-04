@@ -3,7 +3,7 @@ package mq
 import (
 	"strconv"
 	"github.com/bitly/go-nsq"
-	"github.com/tylertreat/nsq/benchmark"
+	"github.com/tylertreat/NSQ/benchmark"
 )
 
 type Nsq struct {
