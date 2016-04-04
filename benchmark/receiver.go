@@ -116,7 +116,7 @@ func (handler *LatencyMessageHandler) ReceiveMessage(message []byte) bool {
 		}
 	}
 	handler.messageCounter++
-	log.Printf("Channel %d Counter %d \n", handler.Channel, handler.messageCounter)
+	//log.Printf("Channel %d Counter %d \n", handler.Channel, handler.messageCounter)
 	if handler.messageCounter == handler.NumberOfMessages{
 		sum := float32(0)
 		for _, latency := range handler.Latencies {
