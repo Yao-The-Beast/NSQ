@@ -52,8 +52,9 @@ func (n *Nsq) Setup() {
 		return nil
 	}))
 	i, _ := strconv.Atoi(n.raw_channel)
-	if i < 128 {
-		n.sub.ConnectToNSQD("192.168.1.12:4150")
+	if i < 1000 {
+		n.sub.ConnectToNSQD("localhost:4150")
+		//n.sub.ConnectToNSQD("10.145.208.27:4150");
 	} else {
 		n.sub.ConnectToNSQD("localhost:4150")
 	}

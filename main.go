@@ -96,7 +96,7 @@ func main() {
 			"[test_latency] [num_messages] [message_size]",
 		os.Args[0])
 
-	for i:=0; i<1; i++ {
+	for i:=0; i<256; i++ {
 		//channel
 		tester := newTester("nsq", true, 10000, 1024, strconv.Itoa(i)) //parseArgs(usage)
 		if tester == nil {
