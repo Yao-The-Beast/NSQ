@@ -16,14 +16,14 @@ type Nsq struct {
 }
 
 func NewNsq(numberOfMessages int, testLatency bool, channeL string) *Nsq {
-	//topic := "0#ephemeral"
+	topic := "0#ephemeral"
 	channel := channeL
-	topic := "0"
-	//channel += "#ephemeral"
+	//topic := "0"
+	channel += "#ephemeral"
 	//topic := channel	
 	pub, _ := nsq.NewProducer("localhost:4150", nsq.NewConfig())
 	config :=nsq.NewConfig()
-	config.MaxInFlight = 2000
+	config.MaxInFlight = 1
 	sub, _ := nsq.NewConsumer(topic, channel, config)
 	var handler benchmark.MessageHandler
 	if testLatency {
@@ -53,8 +53,8 @@ func (n *Nsq) Setup() {
 	}))
 	i, _ := strconv.Atoi(n.raw_channel)
 	if i < 1000 {
-		//n.sub.ConnectToNSQD("localhost:4150")
-		n.sub.ConnectToNSQD("10.145.208.27:4150");
+		n.sub.ConnectToNSQD("localhost:4150")
+		//n.sub.ConnectToNSQD("10.145.208.27:4150");
 	} else {
 		n.sub.ConnectToNSQD("localhost:4150")
 	}
