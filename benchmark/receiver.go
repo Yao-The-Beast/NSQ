@@ -104,7 +104,6 @@ func (handler *LatencyMessageHandler) HasCompleted() bool {
 func (handler *LatencyMessageHandler) ReceiveMessage(message []byte) bool {
 	now := time.Now().UnixNano()
 	then, _ := binary.Varint(message)
-	return false
 	if then != 0 {
 		handler.Latencies = append(handler.Latencies, (float32(now-then))/1000/1000)
 		if handler.Channel == "0" {
@@ -117,7 +116,6 @@ func (handler *LatencyMessageHandler) ReceiveMessage(message []byte) bool {
 		}
 	}
 	handler.messageCounter++
-//	log.Printf(strconv.Itoa(handler.messageCounter))
 	if handler.messageCounter == handler.NumberOfMessages{
 		sum := float32(0)
 		for _, latency := range handler.Latencies {
@@ -125,7 +123,6 @@ func (handler *LatencyMessageHandler) ReceiveMessage(message []byte) bool {
 			
 		}
 		avgLatency := float32(sum) / float32(len(handler.Latencies))
-		//time.Sleep(5*time.Second)
 		log.Printf("Mean latency for %d messages: %f ms\n", handler.NumberOfMessages,
 			avgLatency)
 		if handler.Channel == "0" {
