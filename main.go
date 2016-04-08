@@ -6,6 +6,7 @@ import (
 	"os"
 	"strconv"
 	"time"
+	//"runtime"
 
 	"github.com/tylertreat/NSQ/benchmark"
 	"github.com/tylertreat/NSQ/benchmark/mq"
@@ -95,6 +96,8 @@ func main() {
 			"} "+
 			"[test_latency] [num_messages] [message_size]",
 		os.Args[0])
+
+	//runtime.GOMAXPROCS(runtime.NumCPU())
 
 	for i:=0; i<128; i++ {
 		tester := newTester("nsq", true, 10000, 1024, strconv.Itoa(i)) //parseArgs(usage)
