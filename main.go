@@ -106,7 +106,7 @@ func main() {
 			os.Exit(1)
 		}
 
-		go tester.Test()
+		go tester.Test(i)
 	}
 	for {
 		time.Sleep(50 * time.Second)
