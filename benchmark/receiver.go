@@ -126,7 +126,7 @@ func (handler *LatencyMessageHandler) ReceiveMessage(message []byte) bool {
 		log.Printf("Mean latency for %d messages: %f ms\n", handler.NumberOfMessages,
 			avgLatency)
 		if handler.Channel == "0" {
-			ioutil.WriteFile("/usr/local/bin/NSQ_OUTPUT/Yao:latency", handler.Results, 0777)
+			ioutil.WriteFile("/usr/local/bin/NSQ_OUTPUT/latency", handler.Results, 0777)
 		}
 
 		handler.completionLock.Lock()
