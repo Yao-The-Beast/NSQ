@@ -1,6 +1,7 @@
 package benchmark
 
 //import "log"
+import "runtime"
 
 type Tester struct {
 	Name         string
@@ -11,8 +12,11 @@ type Tester struct {
 	MessageReceiver
 }
 
-func (tester Tester) Test() {
+func (tester Tester) Test(id int) {
 	//log.Printf("Begin %s test", tester.Name)
+	if id == 0 {
+		runtime.LockOSThread()
+	}
 	tester.Setup()
 	defer tester.Teardown()
 
